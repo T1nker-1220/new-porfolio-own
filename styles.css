@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap');
 
 :root {
-    --primary-color: #00434e;
+    --primary-color: #00372f;
     --secondary-color: #000000;
     --accent-color: #27ae60;
     --text-color: #ecf0f1;
-    --background-color: #047b43;
+    --background-color: #000000;
     --card-background: #03522f;
 }
 
-body .html {
+body, html {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     position: relative;
-    overflow: hidden;
-    background-color: #000; /* Dark background */
     scroll-behavior: smooth;
 }
 
@@ -40,18 +38,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
+    margin-right: auto;
+}
+
+.navbar li {
+    margin-right: 5rem;
+    padding-right: 10rem;
+    justify-content: center;
 }
 
 .navbar-collapse {
-    flex-grow: 0;
+    flex-grow: 1;
+    justify-content: center;
 }
 
 .navbar-nav {
-    margin-right: auto;
+    margin: 0 auto;
+}
+
+.navbar .github-logo {
+    max-height: 40px;
+    filter: brightness(0) invert(1);
 }
 
 @media (max-width: 991.98px) {
@@ -73,7 +80,6 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     max-height: 40px;
     filter: brightness(0) invert(1);
-    
 }
 
 /* Hero Section */
@@ -135,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-list {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 15px;
 }
 
@@ -302,7 +308,7 @@ h1, h2, h3, h4, h5, h6 {
 #contact-form input, #contact-form textarea {
     background-color: var(--secondary-color);
     border-color: var(--accent-color);
-    color: var(--text-color);
+    color: var(--background-color);
 }
 
 #contact-form input::placeholder, #contact-form textarea::placeholder {
@@ -367,4 +373,37 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes moveParticle {
     0% { transform: translateY(0); }
     100% { transform: translateY(-100vh); }
+}
+
+.soft-light-beams {
+    position: relative;
+    overflow: hidden;
+}
+
+.soft-light-beams .light-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation: fadeInOut 5s infinite alternate;
+    pointer-events: none;
+}
+
+.soft-light-beams .light-beam:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 6s;
+}
+
+.soft-light-beams .light-beam:nth-child(3) {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 7s;
+}
+
+.soft-light-beams .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: moveParticle 10s infinite;
 }
