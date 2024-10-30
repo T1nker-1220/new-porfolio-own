@@ -1,22 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* Root Variables */
 :root {
-    --primary-color: #00372f;
+    --primary-color: #353A40;
     --secondary-color: #000000;
-    --accent-color: #27ae60;
-    --text-color: #ecf0f1;
-    --background-color: #000000;
-    --card-background: #03522f;
+    --accent-color: #219653;
+    --text-color: #FFFFFF;
+    --background-color: #CD8736;
+    --card-background: #353A40;
 }
 
+/* Global Styles */
 body, html {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     color: var(--text-color);
     position: relative;
     scroll-behavior: smooth;
+    /* Ensure overflow is set to auto to allow scrolling */
+    overflow: auto;
+}
+
+/* Custom Scroll Bar */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scroll bar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-color); /* Background of the scroll bar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color); /* Color of the scroll bar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 3px solid var(--secondary-color); /* Space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: darken(var(--accent-color), 10%); /* Darker color on hover */
+}
+
+/* For Firefox */
+html {
+    /* For Firefox */
+    /* Apply styles only if the browser supports them */
+    @supports (scrollbar-width: thin) {
+        scrollbar-width: thin; /* Thin scroll bar */
+        scrollbar-color: var(--accent-color) var(--secondary-color); /* Thumb and track colors */
+    }
+
+    /* For WebKit-based browsers */
+    ::-webkit-scrollbar {
+        width: 12px; /* Width of the scroll bar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--secondary-color); /* Background of the scroll bar track */
+        border-radius: 10px; /* Rounded corners for the track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-color); /* Color of the scroll bar thumb */
+        border-radius: 10px; /* Rounded corners for the thumb */
+        border: 3px solid var(--secondary-color); /* Space around the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: darken(var(--accent-color), 10%); /* Darker color on hover */
+    }
+    scroll-behavior: smooth;
+}
+
+/* Add the soft-light-beams class to the body */
+body.soft-light-beams {
+    position: relative;
+}
+
+body.soft-light-beams .light-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation: fadeInOut 5s infinite alternate;
+    pointer-events: none;
+}
+
+body.soft-light-beams .light-beam:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 6s;
+}
+
+body.soft-light-beams .light-beam:nth-child(3) {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 7s;
+}
+
+body.soft-light-beams .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: moveParticle 10s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes moveParticle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,8 +125,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    background-color: var(--primary-color) !important;
+    background-color: transparent !important;
     padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it is above other elements */
+    background-color: var(--primary-color); /* Ensure the background color is set */
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -50,10 +154,16 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-collapse {
     flex-grow: 1;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .navbar-nav {
     margin: 0 auto;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 1rem; /* Adjust this value as needed */
+    padding-right: 0; /* Remove padding if any */
 }
 
 .navbar .github-logo {
@@ -99,19 +209,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-social-links .social-icon {
-    color: var(--text-color);
+    color: var (--text-color);
     font-size: 24px;
     margin-right: 15px;
     transition: color 0.3s ease;
 }
 
 .hero-social-links .social-icon:hover {
-    color: var(--accent-color);
+    color: var(--background-color);
 }
 
 .hero-image img {
     border: 5px solid var(--accent-color);
     box-shadow: 0 0 20px rgba(39, 174, 96, 0.3);
+    width: 80%;
+    height: auto;
 }
 
 /* About Section */
@@ -289,31 +401,52 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Contact Section */
 #contact {
+    padding: 20px;
     background-color: var(--secondary-color);
-    padding: 50px 0;
+    color: var(--text-color);
+    z-index: 10; /* Ensure it is above other elements */
+    position: relative;
 }
 
 #contact h2 {
+    font-family: 'Montserrat', sans-serif;
     color: var(--accent-color);
-    margin-bottom: 50px;
 }
 
+/* Contact Form Styles */
 #contact-form {
-    background-color: var(--card-background);
-    padding: 10px;
-    border-radius: 10px;
-    margin: 0 auto;
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
 }
 
-#contact-form input, #contact-form textarea {
-    background-color: var(--secondary-color);
-    border-color: var(--accent-color);
-    color: var(--background-color);
+#contact-form label {
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-#contact-form input::placeholder, #contact-form textarea::placeholder {
-    color: #95a5a6;
+#contact-form input,
+#contact-form textarea {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contact-form button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contact-form button:hover {
+    background-color: darken(var(--accent-color), 10%);
 }
 
 .social-links {
@@ -334,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-icon:hover {
-    color: #00d5f1; /* Change this to your preferred hover color */
+    color: var(--background-color); /* Change this to your preferred hover color */
 }
 
 .light-beam {
@@ -407,4 +540,49 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     animation: moveParticle 10s infinite;
+}
+
+/* Responsive Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4, .col-md-6, .col-md-8 {
+    padding: 15px;
+}
+
+.col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-md-8 {
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
+}
+
+@media (max-width: 768px) {
+    .col-md-4, .col-md-6, .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
 }

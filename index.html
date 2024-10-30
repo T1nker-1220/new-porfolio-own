@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Nathaniel Marquez | Portfolio</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -11,10 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="soft-light-beams">
 
     <!-- Navigation Bar -------------------------------------------------->
-    <nav id= "navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#home"><img src="logo T1nker.png" alt="Logo" class="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,23 +34,6 @@
                 </a>
             </div>
         </div>
-        <!-- Add particles -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const particleCount = 100;
-                const section = document.querySelector('.hero-section');
-    
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.left = `${Math.random() * 100}vw`;
-                    particle.style.top = `${Math.random() * 100}vh`;
-                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                    particle.style.opacity = Math.random();
-                    section.appendChild(particle);
-                }
-            });
-        </script>
     </nav>
 
 
@@ -58,7 +42,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 hero-content" data-aos="fade-right">
-                <h1 class="hero-title">HI, I'm John Nathaniel Marquez</h1>
+                <h1 class="hero-title">Hi, I'm John Nathaniel Marquez</h1>
                 <div class="hero-social-links">
                     <a href="https://www.linkedin.com/in/john-nathaniel-marquez-866522334/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -103,7 +87,7 @@
         <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
                 <div class="about-image-container" data-aos="fade-right">
-                    <img src="picture of me 1.jpg" alt="John Nathaniel Marquez" class="img-fluid rounded-circle">
+                    <img src="profile_picture-removebg-preview.jpg" alt="John Nathaniel Marquez" class="img-fluid rounded-circle">
                 </div>
             </div>
             <div class="col-md-8" data-aos="fade-left">
@@ -111,52 +95,9 @@
                 <div class="about-content">
                     <p>Welcome to my digital playground! I'm John Nathaniel Marquez, a 23-year-old tech enthusiast hailing from the picturesque town of Amadeo, Cavite, in the heart of the Philippines. Currently, I'm navigating the exciting world of web development while pursuing my degree at ICCT Colleges in Cainta, Rizal.</p>
                     <p>As a fourth-year student set to graduate in December 2024, I'm on a mission to blend my passion for technology with my creative instincts. When I'm not immersed in lines of code or brainstorming my next project, you'll find me:</p>
-                    <ul class="about-list">
-                        <li>
-                            <img src="Youtube-logo-png-photo-0.png" alt="YouTube" class="interest-icon">
-                            Crafting content for my YouTube channel, where I share my gaming adventures
-                        </li>
-                        <li>
-                            <img src="microsoft-edge-logo-transparent-free-png.webp" alt="Microsoft Edge" class="interest-icon">
-                            Exploring the vast realms of the internet, always on the hunt for new knowledge
-                        </li>
-                        <li>
-                            <img src="netflix-mobile-application-logo-free-png..webp" alt="Netflix" class="interest-icon">
-                            Getting lost in the captivating narratives of movies
-                        </li>
-                        <li>
-                            <img src="Pc-logo-png.png" alt="PC" class="interest-icon">
-                            Challenging myself with offline PC games
-                        </li>
-                        <li>
-                            <img src="music.png" alt="YouTube Music Premium" class="interest-icon">
-                            Finding inspiration in the rhythm of music
-                        </li>
-                        <li>
-                            <img src="capcut.png" alt="CapCut" class="interest-icon">
-                            Editing videos to perfection, bringing stories to life
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Add particles -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const particleCount = 100;
-                const section = document.querySelector('#about');
-
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.left = `${Math.random() * 100}vw`;
-                    particle.style.top = `${Math.random() * 100}vh`;
-                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                    particle.style.opacity = Math.random();
-                    section.appendChild(particle);
-                }
-            });
-        </script>
     </section>
 
     <!-- Projects Section -->
@@ -264,5 +205,20 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const particleCount = 100;
+            const section = document.querySelector('body');
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                particle.style.opacity = Math.random();
+                section.appendChild(particle);
+            }
+        });
+    </script>
 </body>
 </html>
