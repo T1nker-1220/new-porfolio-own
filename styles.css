@@ -171,6 +171,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--secondary-color);
     padding: 50px 0;
     margin: 40px auto;
+    color: var(--accent-color);
 }
 
 .project-slider {
@@ -293,7 +294,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #contact h2 {
-    color: black;
+    color: var(--accent-color);
     margin-bottom: 50px;
 }
 

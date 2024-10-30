@@ -57,3 +57,5 @@ $(document).ready(function(){
         ]
     });
 });
+
+// Add this function to your script.js or a new JavaScript file
