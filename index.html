@@ -71,7 +71,7 @@
             <div class="col-md-8" data-aos="fade-left">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
-                    <p>Welcome to my digital playground! I'm John Nathaniel Marquez, a 21-year-old tech enthusiast hailing from the picturesque town of Amadeo, Cavite, in the heart of the Philippines. Currently, I'm navigating the exciting world of web development while pursuing my degree at ICCT Colleges in Cainta, Rizal.</p>
+                    <p>Welcome to my digital playground! I'm John Nathaniel Marquez, a 23-year-old tech enthusiast hailing from the picturesque town of Amadeo, Cavite, in the heart of the Philippines. Currently, I'm navigating the exciting world of web development while pursuing my degree at ICCT Colleges in Cainta, Rizal.</p>
                     
                     <p>As a fourth-year student set to graduate in December 2024, I'm on a mission to blend my passion for technology with my creative instincts. When I'm not immersed in lines of code or brainstorming my next project, you'll find me:</p>
                     
@@ -111,7 +111,7 @@
     </section>
 
     <!-- Projects Section --------------------------------------------------------------->
-    <section id="projects" class="my-5">
+    <section id="projects" class="container my-5">
         <div class="container text-center">
             <h2 data-aos="fade-up">Projects</h2>
             <div class="project-slider" data-aos="fade-up" data-aos-delay="100">
@@ -141,7 +141,7 @@
     </section>
 
     <!-- Contact Section ------------------------------------------------------------------------------------>
-    <section id="contact" class="bg-light py-5">
+    <section id="contact" class="container my-5 bg-light py-5">
         <div class="container text-center">
             <h2 data-aos="fade-down">Contacts</h2>
             <form id="contact-form" onsubmit="sendMessage(event)" data-aos="zoom-in">
@@ -175,6 +175,28 @@
             </div>
         </div>
     </section>
+
+    <div class="light-beam"></div>
+    <div class="light-beam"></div>
+    <div class="light-beam"></div>
+
+    <!-- Add particles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const particleCount = 100;
+            const body = document.body;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                particle.style.opacity = Math.random();
+                body.appendChild(particle);
+            }
+        });
+    </script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
