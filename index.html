@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="col-md-6 hero-image" data-aos="fade-left">
-                <img src="profile_picture-removebg-preview.jpg" alt="John Nathaniel Marquez" class="img-fluid rounded-circle">
+                <img src="picture of me 1.jpg" alt="John Nathaniel Marquez" class="img-fluid rounded-circle">
             </div>
         </div>
     </div>
@@ -107,22 +107,23 @@
                 </div>
             </div>
         </div>
-        <!-- Add particles -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const particleCount = 100;
-                const section = document.querySelector('#about');
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.left = `${Math.random() * 100}vw`;
-                    particle.style.top = `${Math.random() * 100}vh`;
-                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                    particle.style.opacity = Math.random();
-                    section.appendChild(particle);
-                }
-            });
-        </script>
+            <!-- Add particles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const particleCount = 100;
+            const section = document.querySelector('.hero-section');
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                particle.style.opacity = Math.random();
+                section.appendChild(particle);
+            }
+        });
+    </script>
     </section>
 
     <!-- Projects Section -->
@@ -174,45 +175,44 @@
 
     <!-- Contact Section -->
     <section id="contact" class="container my-5 soft-light-beams">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h2 class="section-title">Contact Me</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+        <div class="container text-center">
+            <h2 data-aos="fade-down">Contacts</h2>
+            <form id="contact-form" onsubmit="sendMessage(event)" data-aos="zoom-in">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div class="social-links" data-aos="fade-up">
+                <a href="https://www.linkedin.com/in/john-nathaniel-marquez-866522334/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/T1nker-1220" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/nathanielmarquez.20" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/clover_nat/?hl=en" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
-        </div>
-        <div class="social-links" data-aos="fade-up">
-            <a href="https://www.linkedin.com/in/john-nathaniel-marquez-866522334/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/T1nker-1220" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.facebook.com/nathanielmarquez.20" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/clover_nat/?hl=en" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
         </div>
         <!-- Add particles -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const particleCount = 100;
                 const section = document.querySelector('#contact');
+
                 for (let i = 0; i < particleCount; i++) {
                     const particle = document.createElement('div');
                     particle.classList.add('particle');
@@ -226,34 +226,25 @@
         </script>
     </section>
 
-    <!-- Footer -->
-    <footer class="container my-5 soft-light-beams">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>&copy; 2023 John Nathaniel Marquez. All rights reserved.</p>
-            </div>
-        </div>
-        <!-- Add particles -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const particleCount = 100;
-                const section = document.querySelector('footer');
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.left = `${Math.random() * 100}vw`;
-                    particle.style.top = `${Math.random() * 100}vh`;
-                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                    particle.style.opacity = Math.random();
-                    section.appendChild(particle);
-                }
-            });
-        </script>
-    </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const particleCount = 100;
+            const section = document.querySelector('body');
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                particle.style.opacity = Math.random();
+                section.appendChild(particle);
+            }
+        });
+    </script>
 </body>
 </html>
