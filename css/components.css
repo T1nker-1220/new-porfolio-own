@@ -231,3 +231,65 @@ img {
 footer:last-child {
     margin-bottom: 0;
 }
+
+/* Hero Social Links */
+.hero-social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.hero-social-links .social-icon {
+    font-size: 2rem; /* Increase the size of the icons */
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-social-links .social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2); /* Scale up the icon */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* General Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.social-links .social-icon {
+    font-size: 2rem; /* Increase the size of the icons */
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-links .social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2); /* Scale up the icon */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* Hover and Active States */
+.navbar a:hover,
+.navbar a:active {
+    color: var(--accent-color);
+    text-decoration: underline;
+}

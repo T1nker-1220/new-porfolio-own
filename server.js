@@ -32,24 +32,12 @@ app.post('/api/contact', async (req, res) => {
     
     try {
         await newContact.save();
+        // Log to a file
+        fs.appendFileSync('contact_log.txt', `${new Date()}: ${name}, ${email}, ${message}\n`);
         res.status(201).send('Message sent successfully');
     } catch (error) {
         res.status(500).send('Error sending message');
     }
-});
-
-app.post('/api/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-  const newContact = new Contact({ name, email, message });
-  
-  try {
-      await newContact.save();
-      // Log to a file
-      fs.appendFileSync('contact_log.txt', `${new Date()}: ${name}, ${email}, ${message}\n`);
-      res.status(201).send('Message sent successfully');
-  } catch (error) {
-      res.status(500).send('Error sending message');
-  }
 });
 
 // Add this route to your server.js
