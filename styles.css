@@ -7,7 +7,7 @@
     --secondary-color: #000000;
     --accent-color: #219653;
     --text-color: #FFFFFF;
-    --background-color: #CD8736;
+    --background-color: #06aab6;
     --card-background: #353A40;
 }
 
@@ -120,7 +120,7 @@ body.soft-light-beams .particle {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Navigation */
@@ -196,6 +196,74 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
     background-color: var(--secondary-color);
     padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* About, Projects, Contact, and Footer Sections */
+#about,
+#projects,
+#contact,
+footer {
+    background-color: transparent; /* Make background transparent */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Light Beams and Particles */
+.hero-section .light-beam,
+#about .light-beam,
+#projects .light-beam,
+#contact .light-beam,
+footer .light-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation: fadeInOut 5s infinite alternate;
+    pointer-events: none;
+}
+
+.hero-section .light-beam:nth-child(2),
+#about .light-beam:nth-child(2),
+#projects .light-beam:nth-child(2),
+#contact .light-beam:nth-child(2),
+footer .light-beam:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 6s;
+}
+
+.hero-section .light-beam:nth-child(3),
+#about .light-beam:nth-child(3),
+#projects .light-beam:nth-child(3),
+#contact .light-beam:nth-child(3),
+footer .light-beam:nth-child(3) {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 7s;
+}
+
+.hero-section .particle,
+#about .particle,
+#projects .particle,
+#contact .particle,
+footer .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: moveParticle 10s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes moveParticle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
 }
 
 .hero-title {
@@ -226,10 +294,100 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
 }
 
+/* Typing Text Animation */
+.typing-text {
+    position: relative;
+    height: 5rem; /* Adjust based on your font size */
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.word-change {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    font-size: 2.5rem;
+}
+
+.word-change span {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    opacity: 0; /* Start hidden */
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Typing animation for each span */
+.word-change span:nth-child(1) {
+    animation: typing 4s steps(30, end) forwards, reverse-typing 4s steps(30, end) 4s forwards;
+}
+
+.word-change span:nth-child(2) {
+    animation: typing 4s steps(30, end) 8s forwards, reverse-typing 4s steps(30, end) 12s forwards;
+}
+
+.word-change span:nth-child(3) {
+    animation: typing 4s steps(30, end) 16s forwards, reverse-typing 4s steps(30, end) 20s forwards;
+}
+
+.word-change span:nth-child(4) {
+    animation: typing 4s steps(30, end) 24s forwards, reverse-typing 4s steps(30, end) 28s forwards;
+}
+
+.word-change span:nth-child(5) {
+    animation: typing 4s steps(30, end) 32s forwards, reverse-typing 4s steps(30, end) 36s forwards;
+}
+
+/* Keyframes for typing and reverse typing */
+@keyframes typing {
+    from { 
+        width: 0; 
+        opacity: 1; 
+    }
+    to { 
+        width: 100%; 
+        opacity: 1; 
+    }
+}
+
+@keyframes reverse-typing {
+    from { 
+        width: 100%; 
+        opacity: 1; 
+    }
+    to { 
+        width: 0; 
+        opacity: 1; 
+    }
+}
+
+/* Single typing line */
+.typing-text::after {
+    content: '';
+    display: none;
+    width: 2px;
+    height: 100%;
+    background-color: var(--text-color);
+    animation: blink 1s step-end infinite;
+    position: absolute;
+    left: 0; /* Position it at the start */
+    top: 0;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--text-color); }
+}
+
 /* About Section */
 #about {
     background-color: var(--secondary-color);
     padding: 50px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .section-title {
@@ -284,6 +442,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 50px 0;
     margin: 40px auto;
     color: var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .project-slider {
@@ -309,10 +469,17 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    color: rgb(16, 144, 5);
+    color: var(--accent-color);
     padding: 20px;
+    text-decoration-color: var(--text-color);
     transform: translateY(100%);
     transition: transform 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.project-info p {
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
 }
 
 .project-slide:hover img {
@@ -406,6 +573,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     z-index: 10; /* Ensure it is above other elements */
     position: relative;
+    overflow: hidden;
 }
 
 #contact h2 {
@@ -449,7 +617,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: darken(var(--accent-color), 10%);
 }
 
-.social-links {
+social-links {
     margin-top: 20px;
 }
 
@@ -542,17 +710,79 @@ h1, h2, h3, h4, h5, h6 {
     animation: moveParticle 10s infinite;
 }
 
+/* Hero Section Background */
+.hero-section,
+#about,
+#projects,
+#contact,
+footer {
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    min-height: 100vh; /* Make sections at least full viewport height */
+    margin: 0;
+    padding: 60px 0;
+}
+
+/* Light Beams and Particles */
+.hero-section .light-beam,
+#about .light-beam,
+#projects .light-beam,
+#contact .light-beam,
+footer .light-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation: fadeInOut 5s infinite alternate;
+    pointer-events: none;
+}
+
+.hero-section .light-beam:nth-child(2),
+#about .light-beam:nth-child(2),
+#projects .light-beam:nth-child(2),
+#contact .light-beam:nth-child(2),
+footer .light-beam:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 6s;
+}
+
+.hero-section .light-beam:nth-child(3),
+#about .light-beam:nth-child(3),
+#projects .light-beam:nth-child(3),
+#contact .light-beam:nth-child(3),
+footer .light-beam:nth-child(3) {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    animation-duration: 7s;
+}
+
+.hero-section .particle,
+#about .particle,
+#projects .particle,
+#contact .particle,
+footer .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: moveParticle 10s infinite;
+}
+
 /* Responsive Layout */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px; /* Increase max-width for larger screens */
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 30px;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
 }
 
 .col-md-4, .col-md-6, .col-md-8 {
@@ -579,10 +809,48 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 0 100%;
         max-width: 100%;
     }
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-section,
+    #about,
+    #projects,
+    #contact,
+    footer {
+        padding: 40px 0;
+    }
 }
 
 /* Responsive Images */
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* Remove margin from sections */
+.my-5 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ensure content is centered vertically */
+.row.align-items-center {
+    min-height: calc(100vh - 120px); /* Account for padding */
+}
+
+/* Remove extra margins from first and last sections */
+.hero-section:first-child,
+#about:first-child,
+#projects:first-child,
+#contact:first-child {
+    margin-top: 0;
+}
+
+.hero-section:last-child,
+#about:last-child,
+#projects:last-child,
+#contact:last-child,
+footer:last-child {
+    margin-bottom: 0;
 }
