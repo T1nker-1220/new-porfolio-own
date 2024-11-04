@@ -1,6 +1,10 @@
 // Function to send a message
+const submitButton = document.querySelector('button[type="submit"]');
+
 async function sendMessage(event) {
     event.preventDefault(); // Prevent the default form submission
+    submitButton.classList.add('loading');
+    submitButton.disabled = true;
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -16,14 +20,16 @@ async function sendMessage(event) {
         });
 
         if (response.ok) {
-            alert('Message sent successfully!');
+            showSuccessNotification('Message sent successfully!');
             document.getElementById('contact-form').reset(); // Reset the form
         } else {
-            alert('Error sending message. Please try again.');
+            showErrorNotification('Error sending message. Please try again.');
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error sending message. Please try again.');
+        showErrorNotification(error.message);
+    } finally {
+        submitButton.classList.remove('loading');
+        submitButton.disabled = false;
     }
 }
 
@@ -141,8 +147,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.setAttribute('aria-current', 'false');
             if (link.getAttribute('href').slice(1) === current) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
     };
@@ -156,6 +164,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Add tilt effect to project cards
+    VanillaTilt.init(document.querySelectorAll(".project-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5
+    });
+
+    // Progressive image loading
+    document.querySelectorAll('.project-image').forEach(img => {
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+        });
+    });
+
+    // Custom cursor effect
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
 });
 
 // Sticky Navigation
@@ -167,3 +200,42 @@ window.addEventListener('scroll', function() {
         navbar.classList.remove('sticky');
     }
 });
+
+// Custom notification system
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('fade-out');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Animate elements on scroll
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.scroll-animate');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+
+// Animated skill bars
+const animateSkills = () => {
+    const skills = document.querySelectorAll('.skill-progress');
+    
+    skills.forEach(skill => {
+        const percentage = skill.getAttribute('data-percentage');
+        skill.style.width = `${percentage}%`;
+    });
+}

@@ -293,3 +293,60 @@ footer:last-child {
     color: var(--accent-color);
     text-decoration: underline;
 }
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    transform: translateY(100px);
+    animation: slide-up 0.3s forwards;
+}
+
+/* Custom cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: transform 0.1s ease;
+}
+
+/* Project card hover effects */
+.project-card {
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Skill bars */
+.skill-progress {
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    transition: width 1.5s ease-in-out;
+}
+
+.section-transition {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s;
+  }
+
+.float-element {
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
